@@ -1,13 +1,13 @@
-#web JS接入指南
+# web JS接入指南
 
 # 一、SDK接入设置
-##1. 向云合同注册你的应用程序id
+## 1. 向云合同注册你的应用程序id
 请到开发者应用等级页面进行等级，登记并选择移动应用进行设置后，将获得AppID，可立即用于开发。但应用登记完成后还需要提交审核，只有审核通过的应用才能正式发布使用。
-##2. 引用云合同 SDK JS文件
+## 2. 引用云合同 SDK JS文件
 在你的页面引入yht.js，同时，如果你的页面编码不是UTF-8，请添加charset="utf-8"属性。
 
 ```html    
-<script src="http://sdk.yunhetong.com/api/yht.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://sdk.yunhetong.com/sdk/api/yht.js" type="text/javascript" charset="utf-8"></script>
 ```
 
 # 二、云合同初始化和Token管理
@@ -64,7 +64,7 @@ Token 的初始化
 		alert(data.code + " || " + data.msg);
 	},contractId);//contractId 合同id（必须）
 ```
-#五、云合同签名管理
+# 五、云合同签名管理
 云合同签名管理是指第三方App对用户的签名信息进行管理的功能，方法调用后跳转到云合同SDK签名管理页面。
 
 ```javascript
