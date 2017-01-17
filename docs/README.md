@@ -71,6 +71,7 @@ Token 的初始化
 		alert(data.code + " || " + data.msg);
 	},contractId);//contractId 合同id（必须）
 ```
+
 # 五、云合同签名管理
 
 云合同签名管理是指第三方App对用户的签名信息进行管理的功能，方法调用后跳转到云合同SDK签名管理页面。
