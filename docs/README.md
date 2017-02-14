@@ -88,13 +88,13 @@ Token 的初始化
 	);
 ```
 
-| 名称         |描述                                                     |   
-| ------------ |:-------------------------------------------------------:
-| successFun   | 请求成功回调函数</br> 类型:function </br> url : 跳转地址  |
-| failFun      | 请求失败回调函数</br> 类型:function </br> data : 错误信息 |
-| contractId   | 合同ID号 </br> 类型:string                              |
-| backUrl      | 回调地址  </br> 类型:string                              |
-| backPara     | 回调参数 </br> 类型:string                               |
+| 名称         |描述   			  |  类型     |参数             |
+| ------------ | --------------  | --------- |:---------------:
+| successFun   | 请求成功回调函数  | function | url : 跳转地址  |
+| failFun      | 请求失败回调函数  | function | data : 错误信息 |
+| contractId   | 合同ID号         | string   |                 |
+| backUrl      | 回调地址         | string   |                 |
+| backPara     | 回调参数         | string   |                 |
 
 回调参数传递后，可以通过消息回调获取。
 
@@ -120,11 +120,12 @@ Token 的初始化
 	);
 ```		
 
-| 名称         |描述                                                     |   
-| ------------ |:-------------------------------------------------------:
-| successFun   | 请求成功回调函数</br> 类型:function </br> url : 跳转地址  |
-| failFun      | 请求失败回调函数</br> 类型:function </br> data : 错误信息 |
-| backUrl      | 回调地址  </br> 类型:string                              |
-| backPara     | 回调参数 </br> 类型:string                               |
+
+| 名称         |描述   			  |  类型     |参数             |
+| ------------ | --------------  | --------- |:---------------:
+| successFun   | 请求成功回调函数  | function | url : 跳转地址  |
+| failFun      | 请求失败回调函数  | function | data : 错误信息 |
+| backUrl      | 回调地址         | string   |                 |
+| backPara     | 回调参数         | string   |                 |
 
 回调参数传递后，可以通过消息回调获取。
