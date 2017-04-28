@@ -8,7 +8,7 @@
 
 ## 2. 引用云合同 SDK JS文件
 
-**请勿下载yht.js到本地引用，当yht.js版本进行迭代后可能会产生不可预知的bug**
+**请勿下载yht.js到本地引用，当yht.js进行版本迭代后可能会产生不可预知的bug。**
 
 在你的页面引入yht.js，同时，如果你的页面编码不是UTF-8，请添加charset="utf-8"属性。
 
@@ -25,9 +25,9 @@
 
 # 二、云合同初始化和Token管理
 
-SDK js对签名和合同的操作请求需要带上Token并对Token进行校验，对token超时、为空，返回码为400时，系统回调请求 Token 服务
+SDK js对签名和合同的操作请求需要带上Token并对Token进行校验，对token超时、为空，返回码为400时，系统回调请求 Token 服务。
 
-Token 的初始化
+Token 的初始化：
 
 ```javascript		
 	var tokenUnableListener = function(obj){ //当token不合法时，SDK会回调此方法
