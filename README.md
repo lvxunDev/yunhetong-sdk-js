@@ -8,7 +8,7 @@
 
 ## 2. 引用云合同 SDK JS文件
 
-**请勿下载yht.js到本地引用，当yht.js进行版本迭代后可能会产生不可预知的bug。**
+<b style="color:red">请勿下载yht.js到本地引用，当yht.js进行版本迭代后可能会产生不可预知的bug。</b>
 
 在你的页面引入yht.js，同时，如果你的页面编码不是UTF-8，请添加charset="utf-8"属性。
 
@@ -75,8 +75,7 @@ Token 的初始化：
 ```javascript
 	var contractId='';
 	var backUrl='';
-	var backParaObj={code:'success'};
-	var backPara=JSON.stringify(backParaObj);
+	var backPara='';
 
 	YHT.queryContract(
 		function successFun(url){
@@ -108,8 +107,7 @@ Token 的初始化：
 
 ```javascript
 	var backUrl='';
-	var backParaObj={code:'success'};
-	var backPara=JSON.stringify(backParaObj);
+	var backPara='';
 
 	YHT.querySign(
 		function successFun(url){
