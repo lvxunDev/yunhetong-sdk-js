@@ -101,32 +101,28 @@ Token 的初始化：
 回调参数传递后，可以通过消息回调获取。
 
 
-# 五、云合同签名管理
+# 五、App调用H5页面
 
-云合同签名管理是指第三方App对用户的签名信息进行管理的功能，方法调用后跳转到云合同SDK签名管理页面。
+第三方App调用H5页面方法，方法调用后跳转到云合同SDK合同查看页面。
 
-```javascript
-	var backUrl='';
-	var backPara='';
+```
+/**
+ *  根据'contractID'、'token'直接展示拼接的 url 地址在’UIWebView‘展示即可，
+ *
+ **/  
+- (void)refresh{
+    NSMutableString *__urlStr = [NSMutableString stringWithString:@"http://sdk.yunhetong.com/sdk/contract/hView?];
+    [__urlStr appendFormat:@"?contractId=%ld", [self.contractID longValue]];
+    [__urlStr appendFormat:@"&token=%@", [YHTTokenManager sharedManager].token];
 
-	YHT.querySign(
-		function successFun(url){
-			window.open(url);
-		},
-		function failFun(data){
-			alert(data.code + " || " + data.msg);
-		},
-		backUrl,
-		backPara
-	);
+    self.contractURL = [NSURL URLWithString:__urlStr];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSURLRequest *__request = [NSURLRequest requestWithURL:self.contractURL
+                                               cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                           timeoutInterval: 20.0];
+    [self loadRequest:__request];
+}
 ```		
 
-
-| 名称         |描述   			  |  类型     |参数             |
-| ------------ | --------------  | --------- |:---------------:
-| successFun   | 请求成功回调函数  | function | url : 跳转地址  |
-| failFun      | 请求失败回调函数  | function | data : 错误信息 |
-| backUrl      | 回调地址         | string   |                 |
-| backPara     | 回调参数         | string   |                 |
-
-回调参数传递后，可以通过消息回调获取。
+查看[sdk-iOS-H5][1] demo。
+  [1]: https://github.com/lvxunDev/yunhetong-sdk-iOS-H5-
