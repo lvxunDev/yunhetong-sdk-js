@@ -73,21 +73,33 @@ Token 的初始化：
 云合同合同管理模块是指第三方 App 对自己合同进行操作的功能，方法调用后跳转到云合同SDK合同详情页面。
 
 ```javascript
-	var contractId='';
-	var backUrl='';
-	var backPara='';
-
-	YHT.queryContract(
-		function successFun(url){
-			window.open(url);
-		}, 
-		function failFun(data){
-			alert(data.code + " || " + data.msg);
+	$.ajax({
+		type: 'POST',
+		async:false,//请使用同步
+		url: 'token_contract',//第三方服务器获取token的URL，云合同SDK无法提供
+		cache: false,
+		dataType: 'json',
+		data: {},
+		success: function (data, textStatus, jqXHR) {
+			var contractId='';
+			var backUrl='';
+			var noticeParams='';
+			YHT.queryContract(
+				function successFun(url){
+					window.open(url);
+				}, 
+				function failFun(data){
+					alert(data.code + " || " + data.msg);
+				},
+				contractId,
+				backUrl,
+				noticeParams
+			);
 		},
-		contractId,
-		backUrl,
-		backPara
-	);
+		error: function (data) {
+
+		}
+	});
 ```
 
 | 名称         |描述   			  |  类型     |参数             |
@@ -96,7 +108,7 @@ Token 的初始化：
 | failFun      | 请求失败回调函数  | function | data : 错误信息 |
 | contractId   | 合同ID号         | string   |                 |
 | backUrl      | 回调地址         | string   |                 |
-| backPara     | 回调参数         | string   |                 |
+| noticeParams | 回调参数         | string   |                 |
 
 回调参数传递后，可以通过消息回调获取。
 
