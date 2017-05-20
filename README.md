@@ -136,5 +136,4 @@ Token 的初始化：
 }
 ```		
 
-查看[sdk-iOS-H5][1] demo。
-  [1]: https://github.com/lvxunDev/yunhetong-sdk-iOS-H5-
+查看[sdk-iOS-H5 demo](https://github.com/lvxunDev/yunhetong-sdk-iOS-H5-)。
