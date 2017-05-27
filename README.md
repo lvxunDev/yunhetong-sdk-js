@@ -113,7 +113,7 @@ Token 的初始化：
 回调参数传递后，可以通过消息回调获取。
 
 
-# 五、App调用H5页面
+# 五、iOS调用H5页面
 
 第三方App调用H5页面方法，方法调用后跳转到云合同SDK合同查看页面。
 
@@ -123,7 +123,7 @@ Token 的初始化：
  *
  **/  
 - (void)refresh{
-    NSMutableString *__urlStr = [NSMutableString stringWithString:@"http://sdk.yunhetong.com/sdk/contract/hView?];
+    NSMutableString *__urlStr = [NSMutableString stringWithString:@"https://sdk.yunhetong.com/sdk/contract/hView?];
     [__urlStr appendFormat:@"?contractId=%ld", [self.contractID longValue]];
     [__urlStr appendFormat:@"&token=%@", [YHTTokenManager sharedManager].token];
 
@@ -137,3 +137,46 @@ Token 的初始化：
 ```		
 
 查看[sdk-iOS-H5 demo](https://github.com/lvxunDev/yunhetong-sdk-iOS-H5-)。
+
+
+
+# 六、android调用H5页面
+
+第三方开发者只需要调用Html5页面即可进行合同的签署、查看。
+
+``` java
+	//云合同Html5的路径
+	String url = "http://sdk.yunhetong.com/sdk/contract/hView?contractId=获取的合同ID&token=获取的token" 
+	//参数为第三方服务端获取。
+	WebView mYhtWebView = new WebView(this);
+    mYhtWebView.setScrollContainer(false);
+    mYhtWebView.setScrollbarFadingEnabled(false);
+    mYhtWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+    WebSettings settings = mYhtWebView.getSettings();
+    settings.setDefaultTextEncodingName("UTF-8");
+    settings.setJavaScriptEnabled(true);
+    settings.setSupportZoom(true);
+    settings.setDisplayZoomControls(false);
+    settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+    settings.setUseWideViewPort(true);
+    settings.setLoadWithOverviewMode(true);
+    settings.setLoadsImagesAutomatically(true);
+    mYhtWebView.setWebViewClient(new WebViewClient(){
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            view.loadUrl(String.valueOf(request.getUrl()));
+            return true;
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+    });
+   //调用云合同Html5
+   mWebView.loadUrl(url);
+//配置可酌情删减。
+```		
+
