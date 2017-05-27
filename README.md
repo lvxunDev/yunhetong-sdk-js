@@ -145,8 +145,9 @@ Token 的初始化：
 第三方开发者只需要调用Html5页面即可进行合同的签署、查看。
 
 ``` java
+
 	//云合同Html5的路径
-	String url = "http://sdk.yunhetong.com/sdk/contract/hView?contractId=获取的合同ID&token=获取的token" 
+	String url = "https://sdk.yunhetong.com/sdk/contract/hView?contractId=获取的合同ID&token=获取的token" 
 	//参数为第三方服务端获取。
 	WebView mYhtWebView = new WebView(this);
     mYhtWebView.setScrollContainer(false);
@@ -175,8 +176,8 @@ Token 的初始化：
             return true;
         }
     });
-   //调用云合同Html5
-   mWebView.loadUrl(url);
-//配置可酌情删减。
+	//调用云合同Html5
+	mWebView.loadUrl(url);
+	//配置可酌情删减。
 ```		
 
