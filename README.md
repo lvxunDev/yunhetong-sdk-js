@@ -42,33 +42,14 @@ Token 的初始化：
 				YHT.do(obj);//调用此方法，会继续执行上次未完成的操作
 			},
 			error:function(data){
-				alert(data.code + " || " + data.msg);
+				alert(data);
 			}
 		});
 	}	
 	YHT.init("AppID", tokenUnableListener);//必须初始化YHT
 ```
 
-# 三、获取访问Token
-
-```javascript
-	$.ajax({
-		type: 'POST',
-		url: 'token',//第三方服务器获取token的URL，云合同SDK无法提供
-		cache : false,
-		dataType: 'json',
-		data:{},
-		success:function(data, textStatus, jqXHR){
-			YHT.setToken(data.value.token);//设置token
-			var contracts  = data.value.contractList;//获取合同列表
-		},
-		error:function(data){
-			alert(data.code + " || " + data.msg);
-		}
-	});
-```
-
-# 四、云合同合同管理
+# 三、云合同合同管理
 
 云合同合同管理模块是指第三方 App 对自己合同进行操作的功能，方法调用后跳转到云合同SDK合同详情页面。
 
@@ -89,7 +70,7 @@ Token 的初始化：
 					window.open(url);
 				}, 
 				function failFun(data){
-					alert(data.code + " || " + data.msg);
+					alert(data);
 				},
 				contractId,
 				backUrl,
@@ -113,7 +94,7 @@ Token 的初始化：
 回调参数传递后，可以通过消息回调获取。
 
 
-# 五、iOS调用H5页面
+# 四、iOS调用H5页面
 
 第三方App调用H5页面方法，方法调用后跳转到云合同SDK合同查看页面。
 
@@ -140,7 +121,7 @@ Token 的初始化：
 
 
 
-# 六、android调用H5页面
+# 五、android调用H5页面
 
 第三方开发者只需要调用Html5页面即可进行合同的签署、查看。
 
