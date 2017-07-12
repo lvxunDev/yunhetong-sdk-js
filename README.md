@@ -45,7 +45,7 @@ Token 的初始化：
 				alert(data);
 			}
 		});
-	}	
+	}
 	YHT.init("AppID", tokenUnableListener);//必须初始化YHT
 ```
 
@@ -57,7 +57,7 @@ Token 的初始化：
 	$.ajax({
 		type: 'POST',
 		async:false,//请使用同步
-		url: 'token_contract',//第三方服务器获取token的URL，云合同SDK无法提供
+		url: 'contract',//第三方服务器获取合同ID的URL
 		cache: false,
 		dataType: 'json',
 		data: {},
@@ -68,7 +68,7 @@ Token 的初始化：
 			YHT.queryContract(
 				function successFun(url){
 					window.open(url);
-				}, 
+				},
 				function failFun(data){
 					alert(data);
 				},
@@ -128,7 +128,7 @@ Token 的初始化：
 ``` java
 
 	//云合同Html5的路径
-	String url = "https://sdk.yunhetong.com/sdk/contract/hView?contractId=获取的合同ID&token=获取的token" 
+	String url = "https://sdk.yunhetong.com/sdk/contract/hView?contractId=获取的合同ID&token=获取的token"
 	//参数为第三方服务端获取。
 	WebView mYhtWebView = new WebView(this);
     mYhtWebView.setScrollContainer(false);
@@ -161,4 +161,3 @@ Token 的初始化：
 	mWebView.loadUrl(url);
 	//配置可酌情删减。
 ```		
-
